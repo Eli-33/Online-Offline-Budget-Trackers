@@ -56,7 +56,7 @@ const FILES_TO_CACHE = [
       return;
     }
     evt.respondWith(
-      caches.open(evt.request).then(cache => {
+      caches.open(CACHE_NAME).then(cache => {
         return cache.match(evt.request).then(response => {
           return response || fetch(evt.request);
         });
